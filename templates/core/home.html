@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head_title %}المجتهد للعلوم الفيزيائية{% endblock head_title %}
+{% block meta %}{% endblock meta %}
+
+{% block content %}
+<section class="container">
+  <div class="row my-3">
+    <div class="col-12">
+      <div class='row'>
+          <img class="col-12" src="{% static 'img/home.jpg' %}" alt='الرئيسية'>
+          <div class="col-12 px-3">
+            <div class='row mx-0'>
+              <div class="card home-1 col-12 border-secondary mt-4 px-0" style="border: 1px solid white; margin-right: auto;">
+                <img src="{% static 'img/moh4.jpg' %}" alt='فضاء التلميذ' style="width: 100%;">
+                <div class="card-body text-right">
+                  <h4 class="card-title">كل ما يحتاجه الأستاذ</h4>
+                  <p dir="rtl" class="card-text">مذكرات - محاكاة - برامج - نماذج فروض وإختبارات - مراجع مهمة...</p>
+                </div>
+              </div>
+              <div class="card home-1 col-12 border-secondary mt-4 px-0" style="border: 1px solid white;">
+                <img src="{% static 'img/moh3.jpg' %}" alt='فضاء الأستاذ' style="width: 100%;">
+                <div class="card-body text-right">
+                  <h4 class="card-title">كل ما يحتاجه الأستاذ</h4>
+                  <p dir="rtl" class="card-text">مذكرات - محاكاة - برامج - نماذج فروض وإختبارات - مراجع مهمة...</p>
+                </div>
+              </div>
+              <div class="card home-1 col-12 border-secondary mt-4 px-0" style="border: 1px solid white;">
+                <img src="{% static 'img/moh5.jpg' %}" alt='فضاء الأستاذ' style="width: 100%;">
+                <div class="card-body text-right">
+                  <h4 dir='rtl' class="card-title">مخبر العلوم الفيزيائية ......</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

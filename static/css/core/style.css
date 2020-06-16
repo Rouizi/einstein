@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+.home-1{
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+}

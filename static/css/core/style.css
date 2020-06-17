@@ -4,3 +4,13 @@
     max-width: 48%;
 }
 }
+@media (max-width: 768px) {
+    .img1 {
+        height: 200px;
+    }
+}
+@media (max-width: 576px) {
+    .img1 {
+        height: 150px;
+    }
+}

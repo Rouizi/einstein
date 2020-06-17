@@ -10,43 +10,28 @@
   <div class="row my-3">
     <div class="col-12">
       <div class='row'>
-          <img class="col-6 offset-3" src="{% static 'img/img1.png' %}" alt='موقع فيزياء العوام'>
-          <div class="col-12 px-3">
-            <div class='row mx-0'>
-              <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white; margin-right: auto;">
-                <img src="{% static 'img/img2.png' %}" alt='السنة الأولى ثانوي' style="width: 100%;">
-                <!-- <div class="card-body text-right">
-                  <h4 class="card-title">كل ما يحتاجه الأستاذ</h4>
-                  <p dir="rtl" class="card-text">مذكرات - محاكاة - برامج - نماذج فروض وإختبارات - مراجع مهمة...</p>
-                </div> -->
-              </div>
-              <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
-                <img src="{% static 'img/img3.png' %}" alt='فضاء الأستاذ' style="width: 100%;">
-                <!-- <div class="card-body text-right">
-                  <h4 class="card-title">كل ما يحتاجه الأستاذ</h4>
-                  <p dir="rtl" class="card-text">مذكرات - محاكاة - برامج - نماذج فروض وإختبارات - مراجع مهمة...</p>
-                </div> -->
-              </div>
-              <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
-                <img src="{% static 'img/img4.png' %}" alt='فضاء الأستاذ' style="width: 100%; background-color: blue;">
-                <!-- <div class="card-body text-right">
-                  <h4 dir='rtl' class="card-title">مخبر العلوم الفيزيائية ......</h4>
-                </div> -->
-              </div>
-              <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
-                <img src="{% static 'img/img5.png' %}" alt='فضاء الأستاذ' style="width: 100%; background-color: blue;">
-                <!-- <div class="card-body text-right">
-                  <h4 dir='rtl' class="card-title">مخبر العلوم الفيزيائية ......</h4>
-                </div> -->
-              </div>
-              <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
-                <img src="{% static 'img/img6.png' %}" alt='فضاء الأستاذ' style="width: 100%; background-color: blue;">
-                <!-- <div class="card-body text-right">
-                  <h4 dir='rtl' class="card-title">مخبر العلوم الفيزيائية ......</h4>
-                </div> -->
-              </div>
-            </div>
-          </div>
+        <img class="col-6 offset-3 img1" src="{% static 'img/img1.png' %}" alt='موقع فيزياء العوام'>
+        <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white; margin-right: auto;">
+          <img src="{% static 'img/img2.png' %}" alt='موقع فيزياء العوام' style="width: 100%;">
+        </div>
+        <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
+          <a href="{% url 'core:premiere_annee' %}">
+            <img src="{% static 'img/img3.png' %}" alt='السنة الأولى ثانوي' style="width: 100%;">
+          </a>
+        </div>
+        <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
+          <a href="{% url 'core:deuxieme_annee' %}">
+            <img src="{% static 'img/img4.png' %}" alt='السنة االثانية ثانوي' style="width: 100%;">
+          </a>
+        </div>
+        <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
+          <a href="{% url 'core:troisieme_annee' %}">
+            <img src="{% static 'img/img5.png' %}" alt='السنة االثالثة ثانوي' style="width: 100%;">
+          </a>
+        </div>
+        <div class="card col-8 offset-2 border-secondary mt-4 px-0" style="border: 1px solid white;">
+          <img src="{% static 'img/img6.png' %}" alt='االوثائق اللازمة للأستاد' style="width: 100%;">
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a dir="rtl" href="#" class="navbar-brand">بنك الفيزياء للتمارين والإمتحانات</a>
+  <a dir="rtl" href="{% url 'index' %}" class="navbar-brand">بنك الفيزياء للتمارين والإمتحانات</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,11 +14,11 @@
       </div>
     </form>
     <div class="navbar-nav">
-      <a href="#" class="nav-item nav-link">الرئيسية</a>
+      <a href="{% url 'index' %}" class="nav-item nav-link">الرئيسية</a>
       <a href="#" class="nav-item nav-link">مخبر العلوم الفيزيائية</a>
-      <a href="#" class="nav-item nav-link">السنة الثالثة ثانوي</a>
-      <a href="#" class="nav-item nav-link">السنة الثانية ثانوي</a>
-      <a href="#" class="nav-item nav-link">السنة أولى ثانوي</a>
+      <a href="{% url 'core:third_year' %}" class="nav-item nav-link">السنة الثالثة ثانوي</a>
+      <a href="{% url 'core:second_year' %}" class="nav-item nav-link">السنة الثانية ثانوي</a>
+      <a href="{% url 'core:first_year' %}" class="nav-item nav-link">السنة أولى ثانوي</a>
     </div>
   </div>
 </nav>

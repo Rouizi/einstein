@@ -11,5 +11,8 @@ htmlcov/
 .coverage.*
 coverage.xml
 
+# python-decouple
+.env
+
 # Environments
 venv/

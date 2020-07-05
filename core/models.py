@@ -6,7 +6,7 @@ class School(models.Model):
 
     def __str__(self):
         return self.school_year
-    
+
 
 class Wihda(models.Model):
     name = models.CharField(max_length=70)
@@ -17,3 +17,11 @@ class Wihda(models.Model):
 
     class Meta:
         verbose_name_plural = 'Wihdat'
+
+
+class Exercise(models.Model):
+    link = models.URLField()
+    wihda = models.ForeignKey(Wihda, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'exercise {self.id} of {self.wihda.name}'

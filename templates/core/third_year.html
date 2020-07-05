@@ -28,10 +28,13 @@
       <tbody>
         {% for wihda in wihdat_third_year %}
         <tr>
-            <td><a href="#">حلول التمارين</a></td>
-            <td><a href="#">تمارين</a></td>
-            <td>{{ wihda.name }}</td>
-        </tr> 
+          <td><a href="#">حلول التمارين</a></td>
+          <td>
+            <a
+              href="{% url 'core:exercise_wihda' %}?wihda={{ wihda.name }}&school_year_id={{ wihda.school.id }}">تمارين</a>
+          </td>
+          <td>{{ wihda.name }}</td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>

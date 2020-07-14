@@ -11,6 +11,7 @@ class School(models.Model):
 class Wihda(models.Model):
     name = models.CharField(max_length=70)
     school = models.ForeignKey(School, on_delete=models.CASCADE)
+    summary = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.name

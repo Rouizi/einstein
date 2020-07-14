@@ -1,8 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 
+import logging
+
 from core.models import Wihda, Exercise
 from core.google_drive import display_files
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -42,12 +46,18 @@ def exercise_wihda(request):
 
 @staff_member_required
 def tool(request):
+    logger.info('Begin execution view tool')
     context = {}
     drive_id = request.GET.get('drive_id', None)
     drive_name = request.GET.get('drive_name', None)
     connect_all_files = request.GET.get('connect_all_files', None)
 
+    logger.info(f'drive_id = {drive_id}')
+    logger.info(f'drive_name = {drive_name}')
+    logger.info(f'connect_all_files = {connect_all_files}')
+
     if connect_all_files is not None:
+        logger.info('variable connect_all_files is not None')
         files = display_files(query=drive_id)
         for file in files:
             link = f"https://drive.google.com/file/d/{file['id']}/view?usp=sharing"

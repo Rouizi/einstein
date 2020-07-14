@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.admin.views.decorators import staff_member_required
 
 from core.models import Wihda, Exercise
+from core.google_drive import display_files
 
 
 def index(request):
@@ -36,3 +38,46 @@ def exercise_wihda(request):
         'exercises': exercises
     }
     return render(request, 'core/exercises_wihda.html', context)
+
+
+@staff_member_required
+def tool(request):
+    context = {}
+    drive_id = request.GET.get('drive_id', None)
+    drive_name = request.GET.get('drive_name', None)
+    connect_all_files = request.GET.get('connect_all_files', None)
+
+    if connect_all_files is not None:
+        files = display_files(query=drive_id)
+        for file in files:
+            link = f"https://drive.google.com/file/d/{file['id']}/view?usp=sharing"
+            exercise = Exercise.objects.filter(link=link)
+            if not exercise.exists():
+                wihda = Wihda.objects.get(name=drive_name)
+                link = f"https://drive.google.com/file/d/{file['id']}/view?usp=sharing"
+                exercise = Exercise.objects.create(
+                    name=file['name'], link=link, wihda=wihda)
+                exercise.save()
+        context['connect_all_files'] = None
+
+    if drive_id is not None:
+        files = display_files(query=drive_id)
+        returned_files = []
+        for file in files:
+            link = f"https://drive.google.com/file/d/{file['id']}/view?usp=sharing"
+            exercise = Exercise.objects.filter(link=link)
+            if not exercise.exists():
+                returned_files.append(file)
+        display_connect = True
+    else:
+        returned_files = display_files()
+        display_connect = False
+
+    context = {'returned_files': returned_files,
+               'display_connect': display_connect}
+    if drive_name:
+        context['drive_name'] = drive_name
+    if drive_id:
+        context['drive_id'] = drive_id
+
+    return render(request, 'core/tool.html', context)

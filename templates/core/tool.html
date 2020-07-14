@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Tool admin{% endblock head_title %}
+
+
+{% block content %}
+<section class="container-fluid my-5 py-5"
+  style="border: 1px solid rgb(187, 187, 187); box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);">
+
+  {% if display_connect %}
+  <a class="my-5 text-secondary font-weight-bold" href="{% url 'core:tool' %}">Return to list drive</a>
+  {% endif %}
+  <hr>
+  {% for file in returned_files %}
+  <p>
+    <a class="font-weight-bold"
+      href="{% url 'core:tool' %}?drive_name={{ file.name }}&drive_id={{ file.id }}">{{ file.name }}</a>
+    <a href='#'> {{file.id}}</a>
+  </p>
+  {% endfor %}
+  {% if display_connect %}
+  <a class='btn btn-primary btn-lg'
+    href="{% url 'core:tool' %}?connect_all_files=True&drive_name={{ drive_name }}&drive_id={{ drive_id }}">Connect
+    all</a>
+  {% endif %}
+
+</section>
+{% endblock content %}

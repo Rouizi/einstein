@@ -3,7 +3,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 import logging
 
-from core.models import Wihda, Exercise
+from core.models import Wihda, Exercise, Summary_wihda
 from core.google_drive import display_files
 
 logger = logging.getLogger(__name__)
@@ -42,6 +42,13 @@ def exercise_wihda(request):
         'exercises': exercises
     }
     return render(request, 'core/exercises_wihda.html', context)
+
+
+def summary_wihda(request, id_wihda):
+    wihda = get_object_or_404(Wihda, id=id_wihda)
+    summaries = Summary_wihda.objects.filter(wihda=wihda)
+    context = {'summaries': summaries, 'wihda': wihda}
+    return render(request, 'core/summary_wihda.html', context)
 
 
 @staff_member_required

@@ -11,13 +11,18 @@ class School(models.Model):
 class Wihda(models.Model):
     name = models.CharField(max_length=70)
     school = models.ForeignKey(School, on_delete=models.CASCADE)
-    summary = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name_plural = 'Wihdat'
+
+
+class Summary_wihda(models.Model):
+    name = models.CharField(max_length=150)
+    link = models.URLField(null=True, blank=True)
+    wihda = models.ForeignKey(Wihda, on_delete=models.CASCADE)
 
 
 class Exercise(models.Model):

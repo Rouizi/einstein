@@ -28,7 +28,7 @@
       <tbody>
         {% for wihda in wihdat_third_year %}
         <tr>
-          <td><a href="#"> {{ forloop.counter }} ملخص الوحدة</a></td>
+          <td><a href="{% url 'core:summary_wihda' wihda.id %}"> {{ forloop.counter }} ملخص الوحدة</a></td>
           <td>
             <a href="{% url 'core:exercise_wihda' %}?wihda={{ wihda.name }}&school_year_id={{ wihda.school.id }}">
               تمارين مع الحل</a>

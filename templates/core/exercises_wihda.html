@@ -35,23 +35,7 @@
             <a href='#'>{{ forloop.counter }} تحميل حل التمرين</a>
           </td>
           <td>
-            <!-- <a href='{{ exercise.link }}' target='_blank'>{{ forloop.counter }} تحميل التمرين</a> -->
-            <div class="accordion" id="accordionExample{{ forloop.counter }}">
-              <div id="headingOne">
-                <button dir='rtl' type="button" class="btn btn-link" data-toggle="collapse"
-                  data-target="#collapseOne{{ forloop.counter }}" style='font-size: 1.2rem'>تحميل
-                  {{ exercise.name|truncatechars:11 }}
-                </button>
-              </div>
-              <div id="collapseOne{{ forloop.counter }}" class="collapse" aria-labelledby="headingOne"
-                data-parent="#accordionExample{{ forloop.counter }}">
-                <iframe src="https://drive.google.com/file/d/1z9OlOL21L6j8YKSwgPs1FRhF6lDeaiYZ/preview" width="640"
-                  height="480"></iframe>
-                <hr>
-                <a href='#'>link</a>
-
-              </div>
-            </div>
+            <a href='{{ exercise.link }}' target='_blank'>تحميل{{ exercise.name|truncatechars:11 }}</a>
           </td>
         </tr>
         {% endfor %}

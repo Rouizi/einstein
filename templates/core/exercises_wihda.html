@@ -35,7 +35,7 @@
             <a href='#'>{{ forloop.counter }} تحميل حل التمرين</a>
           </td>
           <td>
-            <a dir='rtl' href='{{ exercise.link }}' target='_blank'>{{ exercise.name|truncatechars:11 }}</a>
+            <a href='{{ exercise.link }}' target='_blank'>{{ forloop.counter }} تحميل التمرين</a>
           </td>
         </tr>
         {% endfor %}

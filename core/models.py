@@ -28,6 +28,7 @@ class Summary_wihda(models.Model):
 class Exercise(models.Model):
     name = models.CharField(max_length=150, default='التمرين __')
     link = models.URLField()
+    solution_link = models.URLField(null=True, blank=True)
     wihda = models.ForeignKey(Wihda, on_delete=models.CASCADE)
 
     def __str__(self):

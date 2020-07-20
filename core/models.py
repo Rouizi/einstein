@@ -25,6 +25,7 @@ class Order_name(models.Model):
 
 class Summary_wihda(models.Model):
     name = models.CharField(max_length=150)
+    short_name = models.CharField(max_length=15, blank=True, null=True)
     order_name = models.ForeignKey(
         Order_name, on_delete=models.SET_NULL, null=True, blank=True)
     link = models.URLField(null=True, blank=True)
@@ -39,6 +40,7 @@ class Summary_wihda(models.Model):
 
 class Exercise(models.Model):
     name = models.CharField(max_length=150, default='التمرين __')
+    short_name = models.CharField(max_length=15, blank=True, null=True)
     order_name = models.ForeignKey(
         Order_name, on_delete=models.SET_NULL, null=True, blank=True)
     link = models.URLField()

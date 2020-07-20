@@ -32,10 +32,14 @@
         {% for exercise in exercises %}
         <tr>
           <td>
-            <a href='#'>{{ forloop.counter }} تحميل حل التمرين</a>
+            <a {% if exercise.solution_link is None %} class='text-secondary' href='#'
+              title='سيتم إضافة حل لهذا التمرين لاحقا' {% else %} href='{{ exercise.solution_link }}' target='_blank'
+              {% endif %}>
+              {{ exercise.order_name.order }} تحميل حل التمرين
+            </a>
           </td>
           <td>
-            <a href='{{ exercise.link }}' target='_blank'>{{ forloop.counter }} تحميل التمرين</a>
+            <a href='{{ exercise.link }}' target='_blank'>{{ exercise.order_name.order }} تحميل التمرين</a>
           </td>
         </tr>
         {% endfor %}

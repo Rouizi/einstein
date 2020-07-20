@@ -19,14 +19,28 @@ class Wihda(models.Model):
         verbose_name_plural = 'Wihdat'
 
 
+class Order_name(models.Model):
+    order = models.PositiveIntegerField()
+
+
 class Summary_wihda(models.Model):
     name = models.CharField(max_length=150)
+    order_name = models.ForeignKey(
+        Order_name, on_delete=models.SET_NULL, null=True, blank=True)
     link = models.URLField(null=True, blank=True)
     wihda = models.ForeignKey(Wihda, on_delete=models.CASCADE)
+
+    def str(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Summary_wihdat'
 
 
 class Exercise(models.Model):
     name = models.CharField(max_length=150, default='التمرين __')
+    order_name = models.ForeignKey(
+        Order_name, on_delete=models.SET_NULL, null=True, blank=True)
     link = models.URLField()
     solution_link = models.URLField(null=True, blank=True)
     wihda = models.ForeignKey(Wihda, on_delete=models.CASCADE)

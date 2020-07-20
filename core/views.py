@@ -36,7 +36,7 @@ def exercise_wihda(request):
     wihda = request.GET.get('wihda', None)
     school_year_id = request.GET.get('school_year_id', None)
     wihda = get_object_or_404(Wihda, name=wihda, school_id=school_year_id)
-    exercises = Exercise.objects.filter(wihda=wihda)
+    exercises = Exercise.objects.filter(wihda=wihda).order_by('order_name')
     context = {
         'wihda': wihda,
         'exercises': exercises
@@ -46,7 +46,8 @@ def exercise_wihda(request):
 
 def summary_wihda(request, id_wihda):
     wihda = get_object_or_404(Wihda, id=id_wihda)
-    summaries = Summary_wihda.objects.filter(wihda=wihda)
+    summaries = Summary_wihda.objects.filter(
+        wihda=wihda).order_by('order_name')
     context = {'summaries': summaries, 'wihda': wihda}
     return render(request, 'core/summary_wihda.html', context)
 

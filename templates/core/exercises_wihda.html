@@ -42,7 +42,8 @@
         {% for exercise in exercises %}
         <tr>
           <td>
-            <a {% if exercise.solution_link is None %} class='text-secondary' href='#'
+            <a {% if exercise.solution_link is None %} class='text-secondary'
+              href='https://drive.google.com/file/d/1yJDgpxfjb2FhgZjfA1vP9z463B2l2kfw/view?usp=sharing'
               title='سيتم إضافة حل لهذا التمرين لاحقا' {% else %} href='{{ exercise.solution_link }}' target='_blank'
               {% endif %}>
               {{ exercise.order_name.order }} تحميل حل التمرين

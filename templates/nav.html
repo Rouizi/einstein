@@ -7,9 +7,9 @@
   <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
     <div class="navbar-nav ml-auto">
       <a href="{% url 'index' %}" class="nav-item nav-link">الرئيسية</a>
-      <a href="{% url 'core:third_year' %}" class="nav-item nav-link">السنة الثالثة ثانوي</a>
-      <a href="{% url 'core:second_year' %}" class="nav-item nav-link">السنة الثانية ثانوي</a>
-      <a href="{% url 'core:first_year' %}" class="nav-item nav-link">السنة الأولى ثانوي </a>
+      <a href="{% url 'core:school_year' 'الثالثة ثانوي' %}" class="nav-item nav-link">السنة الثالثة ثانوي</a>
+      <a href="{% url 'core:school_year' 'الثانية ثانوي' %}" class="nav-item nav-link">السنة الثانية ثانوي</a>
+      <a href="{% url 'core:school_year' 'الأولى ثانوي' %}" class="nav-item nav-link">السنة الأولى ثانوي </a>
     </div>
   </div>
 </nav>

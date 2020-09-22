@@ -1,0 +1,9 @@
+<nav class="font-weight-bold text-right mt-3" dir='rtl' style='font-size: x-large;'>
+  <a href="{% url 'index' %}">
+    <span class="fa fa-home"></span> الرئيسية
+  </a>
+  »<a href="{% url 'core:school_year' wihda.school.school_year %}">
+    فيزياء {{ wihda.school.school_year }}
+  </a>
+  » <span class='text-dark'>{{ wihda.name }}</span>
+</nav>

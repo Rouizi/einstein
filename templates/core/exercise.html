@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+تمارين مع الحلول العلوم الفيزيائية {{ wihda.school.school_year }} {{ wihda.name }}
+{% endblock head_title %}
+
+{% block content %}
+<section class="container main my-5 py-5">
+  <nav class="font-weight-bold text-right mt-3" dir='rtl' style='font-size: x-large;'>
+    <a href="{% url 'index' %}">
+      <span class="fa fa-home"></span> الرئيسية
+    </a>
+    »<a href="{% url 'core:school_year' wihda.school.school_year %}">
+      فيزياء {{ wihda.school.school_year }}
+    </a>
+    » <a href="{% url 'core:exercise_wihda' %}?wihda={{ wihda.name }}&school_year_id={{ wihda.school.id }}">
+      {{ wihda.name }}
+    </a>
+    » <span class='text-dark'>{{ exc.name }}</span>
+  </nav>
+
+  <h3 class='text-right text-dark my-5'>
+    تمارين بكالوريا مع الحلول للسنة {{ wihda.school.school_year }} مادة العلوم الفيزيائية
+  </h3>
+  <div class="text-right my-5">
+    <p dir="rtl">
+      لتحميل التمرين
+      <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_exercise }}'>
+        إضغط هنا
+      </a>
+    </p>
+    {% if exc.solution_link is not None %}
+    <p dir="rtl">
+      لتحميل الحل
+      <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_exc_solution }}'>
+        إضغط هنا
+      </a>
+    </p>
+    {% endif %}
+  </div>
+
+  <iframe src="https://drive.google.com/file/d/{{ id_exercise }}/preview"></iframe>
+  {% if exc.solution_link is not None %}
+  <h3 class="text-right my-5">حل التمرين {{ exc.order_name.order }}</h3>
+  <iframe src="https://drive.google.com/file/d/{{ id_exc_solution }}/preview"></iframe>
+  {% endif %}
+</section>
+{% endblock content %}

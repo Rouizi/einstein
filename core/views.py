@@ -30,12 +30,42 @@ def exercise_wihda(request):
     return render(request, 'core/exercises_wihda.html', context)
 
 
+def exercise(request, pk):
+    exc = get_object_or_404(Exercise, id=pk)
+    wihda = exc.wihda
+    id_exercise = exc.link.split('/')[5]
+
+    context = {
+        'exc': exc,
+        'wihda': wihda,
+        'id_exercise': id_exercise,
+    }
+    if exc.solution_link:
+        id_exc_solution = exc.solution_link.split('/')[5]
+        context['id_exc_solution'] = id_exc_solution
+    return render(request, 'core/exercise.html', context)
+
+
 def summary_wihda(request, id_wihda):
     wihda = get_object_or_404(Wihda, id=id_wihda)
     summaries = Summary_wihda.objects.filter(
         wihda=wihda).order_by('order_name')
     context = {'summaries': summaries, 'wihda': wihda}
     return render(request, 'core/summary_wihda.html', context)
+
+
+def summary(request, pk):
+    summ = get_object_or_404(Summary_wihda, id=pk)
+    wihda = summ.wihda
+    id_summary = summ.link.split('/')[5]
+
+    context = {
+        'summ': summ,
+        'wihda': wihda,
+        'id_summary': id_summary
+    }
+
+    return render(request, 'core/summary.html', context)
 
 
 @staff_member_required

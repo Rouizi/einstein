@@ -3,15 +3,8 @@
 {% block head_title %}ملخص {{ wihda.name }} العلوم الفيزيائية {{ wihda.school.school_year }}{% endblock head_title %}
 
 {% block content %}
-<section class="container my-5 py-5"
-  style="border: 1px solid rgb(187, 187, 187); box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);">
-  <nav class="font-weight-bold text-right mt-3" dir='rtl' style='font-size: x-large;'>
-    <a href="{% url 'index' %}">
-      <span class="fa fa-home"></span> الرئيسية
-    </a>
-    »<a href="{% url 'core:school_year' wihda.school.school_year %}"> فيزياء {{ wihda.school.school_year }}</a>
-    » <span class='text-dark'>{{ wihda.name }}</span>
-  </nav>
+<section class="container main my-5 py-5">
+  {% include 'navigation.html' %}
 
   <h3 class='text-right text-dark my-5'>
     ملخص {{ wihda.name }} العلوم الفيزيائية{{ wihda.school.school_year }} من إعداد الاستاذ بوشناف محمد
@@ -29,7 +22,7 @@
         {% for summary in summaries %}
         <tr>
           <td>
-            <a href='{{ summary.link }}' target='_blank'>تحميل {{ summary.short_name }}</a>
+            <a href="{% url 'core:summary' summary.pk %}">تحميل {{ summary.short_name }}</a>
           </td>
         </tr>
         {% endfor %}

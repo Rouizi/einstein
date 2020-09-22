@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+ملخص {{ wihda.name }} العلوم الفيزيائية {{ wihda.school.school_year }}
+{% endblock head_title %}
+
+{% block content %}
+<section class="container main my-5 py-5">
+  <nav class="font-weight-bold text-right mt-3" dir='rtl' style='font-size: x-large;'>
+    <a href="{% url 'index' %}">
+      <span class="fa fa-home"></span> الرئيسية
+    </a>
+    »<a href="{% url 'core:school_year' wihda.school.school_year %}">
+      فيزياء {{ wihda.school.school_year }}
+    </a>
+    » <a href="{% url 'core:summary_wihda' id_wihda=wihda.id %}">
+      {{ wihda.name }}
+    </a>
+    » <span class='text-dark'>{{ summ.short_name }}</span>
+  </nav>
+
+  <h3 class='text-right text-dark my-5'>
+    ملخص العلوم الفيزيائية{{ wihda.school.school_year }} من إعداد الاستاذ بوشناف محمد
+  </h3>
+  <div class="text-right my-5">
+    <p>
+      <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_summary }}'>
+        تحميل {{ summ.short_name }}
+      </a>
+    </p>
+  </div>
+
+  <iframe src="https://drive.google.com/file/d/{{ id_summary }}/preview"></iframe>
+</section>
+{% endblock content %}

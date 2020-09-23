@@ -16,8 +16,7 @@
     » فيزياء {{ school.school_year }}</span>
   </nav>
 
-  <h3 class='text-right my-4'> تمارين مع الحلول العلوم الفيزيائية {{ school.school_year }} من إعداد الاستاذ بوشناف
-    محمد</h3>
+  <h3 class='text-right my-4'>تمارين مع الحلول من إعداد الاستاذ بوشناف محمد</h3>
 
   <div class="table-responsive">
     <table class="table table-striped table-bordered text-right">
@@ -34,7 +33,7 @@
         {% for wihda in school.wihda_set.all %}
         <tr>
           {% if school.school_year == 'الثالثة ثانوي' %}
-          <td><a href="{% url 'core:summary_wihda' wihda.id %}"> {{ forloop.counter }} ملخص الوحدة</a></td>
+          <td><a dir='rtl' href="{% url 'core:summary_wihda' wihda.id %}"> {{ forloop.counter }} ملخص الوحدة</a></td>
           {% endif %}
           <td>
             <a href="{% url 'core:exercise_wihda' %}?wihda={{ wihda.name }}&school_year_id={{ wihda.school.id }}">

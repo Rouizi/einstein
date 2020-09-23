@@ -22,26 +22,24 @@
   <h3 class='text-right text-dark my-5'>
     تمارين بكالوريا مع الحلول للسنة {{ wihda.school.school_year }} مادة العلوم الفيزيائية
   </h3>
-  <div class="text-right my-5">
-    <p dir="rtl">
-      لتحميل التمرين
-      <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_exercise }}'>
-        إضغط هنا
-      </a>
-    </p>
-    {% if exc.solution_link is not None %}
-    <p dir="rtl">
-      لتحميل الحل
-      <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_exc_solution }}'>
-        إضغط هنا
-      </a>
-    </p>
-    {% endif %}
-  </div>
+  <p class="text-right my-5" dir="rtl">
+    لتحميل التمرين
+    <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_exercise }}'>
+      إضغط هنا
+    </a>
+  </p>
 
   <iframe src="https://drive.google.com/file/d/{{ id_exercise }}/preview"></iframe>
   {% if exc.solution_link is not None %}
   <h3 class="text-right my-5">حل التمرين {{ exc.order_name.order }}</h3>
+  {% if exc.solution_link is not None %}
+  <p class="text-right my-5" dir="rtl">
+    لتحميل الحل
+    <a dir='rtl' href='https://drive.google.com/uc?export=download&id={{ id_exc_solution }}'>
+      إضغط هنا
+    </a>
+  </p>
+  {% endif %}
   <iframe src="https://drive.google.com/file/d/{{ id_exc_solution }}/preview"></iframe>
   {% endif %}
 </section>

@@ -53,3 +53,39 @@ class Exercise(models.Model):
     class Meta:
         verbose_name = 'Exercice'
         verbose_name_plural = 'Exercices'
+
+
+class Modakira(models.Model):
+    name = models.CharField(max_length=150)
+    short_name = models.CharField(max_length=15)
+    order_name = models.ForeignKey(
+        Order_name, on_delete=models.SET_NULL, null=True, blank=True)
+    link = models.URLField()
+    wihda = models.ForeignKey(Wihda, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.short_name} {self.wihda.name}'
+
+    class Meta:
+        verbose_name_plural = 'Modakirates'
+
+
+class Year(models.Model):
+    number = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.number}'
+
+
+class Tadaroj(models.Model):
+    name = models.CharField(max_length=150)
+    order_name = models.ForeignKey(
+        Order_name, on_delete=models.SET_NULL, null=True, blank=True)
+    link = models.URLField()
+    year = models.ForeignKey(Year, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name_plural = 'Tadarojat'

@@ -3,7 +3,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 import logging
 
-from core.models import Wihda, Exercise, Summary_wihda, School
+from core.models import Wihda, Exercise, Summary_wihda, School, Modakira, Tadaroj, Year
 from core.google_drive import display_files
 
 logger = logging.getLogger(__name__)
@@ -66,6 +66,58 @@ def summary(request, pk):
     }
 
     return render(request, 'core/summary.html', context)
+
+
+def modakirat_wihda(request):
+    wihda = request.GET.get('wihda', None)
+    school_year_id = request.GET.get('school_year_id', None)
+    wihda = get_object_or_404(Wihda, name=wihda, school_id=school_year_id)
+    modakirat = Modakira.objects.filter(wihda=wihda).order_by('order_name')
+    context = {
+        'wihda': wihda,
+        'modakirat': modakirat
+    }
+    return render(request, 'core/modakirat_wihda.html', context)
+
+
+def modakira(request, pk):
+    modakira = get_object_or_404(Modakira, id=pk)
+    wihda = modakira.wihda
+    id_modakira = modakira.link.split('/')[5]
+
+    context = {
+        'modakira': modakira,
+        'wihda': wihda,
+        'id_modakira': id_modakira,
+    }
+    return render(request, 'core/modakira.html', context)
+
+
+def year(request):
+    years = Year.objects.all()
+    return render(request, 'core/years.html', {'years': years})
+
+
+def tadarojat_year(request, id_year):
+    year = get_object_or_404(Year, id=id_year)
+    tadarojat = Tadaroj.objects.filter(
+        year=year).order_by('order_name')
+    context = {'tadarojat': tadarojat, 'year': year}
+    return render(request, 'core/tadarojat_year.html', context)
+
+
+# def tadaroj(request, pk):
+#     tadaroj = get_object_or_404(Tadaroj, id=pk)
+#     year = tadaroj.year
+#     id_tadaroj = tadaroj.link.split('/')[5]
+
+#     context = {
+#         'tadaroj': tadaroj,
+#         'year': year,
+#         'id_tadaroj': id_tadaroj
+#     }
+
+#     return render(request, 'core/tadaroj.html', context)
 
 
 @staff_member_required

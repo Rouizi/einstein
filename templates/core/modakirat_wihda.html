@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+مذكرات و أعمال مخبرية {{ wihda.name }} العلوم الفيزيائية {{ wihda.school.school_year }}
+{% endblock head_title %}
+
+{% block content %}
+<section class="container main my-5 py-5">
+  {% include 'navigation.html' %}
+
+  <h3 class='text-right text-dark my-5'>مذكرات و أعمال مخبرية {{ wihda.name }} من إعداد الاستاذ بوشناف محمد</h3>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered text-right">
+      <thead>
+        <tr>
+          <th>المذكرات</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for modakira in modakirat %}
+        <tr>
+          <td>
+            <a href="{% url 'core:modakira' modakira.pk %}">تحميل {{ modakira.short_name }}</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+{{ tadaroj.name }}
+{% endblock head_title %}
+
+{% block content %}
+<section class="container main my-5 py-5">
+  <nav class="font-weight-bold text-right mt-3" dir='rtl' style='font-size: x-large;'>
+    <a href="{% url 'index' %}">
+      <span class="fa fa-home"></span> الرئيسية
+    </a>
+    »<a href="{% url 'core:school_year' wihda.school.school_year %}">
+      تدرجات {{ tadaroj.year.number }} مادة العلوم الفيزيائية
+    </a>
+    » <a href="{% url 'core:summary_wihda' id_wihda=wihda.id %}">
+      {{ tadaroj.name }}
+    </a>
+  </nav>
+
+  <h3 class='text-right text-dark my-5'>{{ tadaroj.name }} من إعداد الاستاذ بوشناف محمد</h3>
+
+  <div class="text-right my-5">
+    <p>
+      <a href='https://drive.google.com/uc?export=download&id={{ id_tadaroj }}'>
+        تحميل {{ tadaroj.name }}
+      </a>
+    </p>
+  </div>
+
+  <iframe src="https://drive.google.com/file/d/{{ id_tadaroj }}/preview"></iframe>
+</section>
+{% endblock content %}

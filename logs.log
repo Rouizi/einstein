@@ -1,0 +1,4 @@
+2020-07-14 10:40:00,502 core.views  INFO Begin execution view tool
+2020-07-14 10:40:00,503 core.views  INFO drive_id = None
+2020-07-14 10:40:00,503 core.views  INFO drive_name = None
+2020-07-14 10:40:00,503 core.views  INFO connect_all_files = None

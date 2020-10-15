@@ -16,7 +16,13 @@
     » فيزياء {{ school.school_year }}</span>
   </nav>
 
-  <h3 class='text-right my-4'>تمارين مع الحلول من إعداد الاستاذ بوشناف محمد</h3>
+  <h3 class='text-right my-4'>
+    {% if school.school_year == 'الثالثة ثانوي' %}
+    تمارين مع الحلول من إعداد الاستاذ بوشناف محمد
+    {% else %}
+    مذكرات وتمارين محلولة للسنة {{ school.school_year }} من إعداد الأستاذ بوشناف محمد
+    {% endif %}
+  </h3>
 
   <div class="table-responsive">
     <table class="table table-striped table-bordered text-right">
@@ -26,6 +32,9 @@
           <th>ملخص الوحدات</th>
           {% endif %}
           <th>تمارين لكل الوحدات</th>
+          {% if school.school_year != 'الثالثة ثانوي' %}
+          <th>مذكرات و أعمال مخبرية</th>
+          {% endif %}
           <th>الوحدة</th>
         </tr>
       </thead>
@@ -40,6 +49,14 @@
               تمارين مع الحل
             </a>
           </td>
+          {% if school.school_year != 'الثالثة ثانوي' %}
+          <td>
+            <a href="{% url 'core:modakirat_wihda' %}?wihda={{ wihda.name }}&school_year_id={{ wihda.school.id }}"
+              dir="rtl">
+              مذكرات و أعمال مخبرية
+            </a>
+          </td>
+          {% endif %}
           <td>{{ wihda.name }}</td>
         </tr>
         {% endfor %}

@@ -22,7 +22,7 @@
         {% for modakira in modakirat %}
         <tr>
           <td>
-            <a href="{% url 'core:modakira' modakira.pk %}">تحميل {{ modakira.short_name }}</a>
+            <a href="{% url 'core:modakira' modakira.pk %}">تحميل {{ modakira.name }}</a>
           </td>
         </tr>
         {% endfor %}

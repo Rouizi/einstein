@@ -13,5 +13,6 @@ urlpatterns = [
     path('tadarojat_year/<int:id_year>/',
          views.tadarojat_year, name='tadarojat_year'),
     # path('tadaroj/<int:pk>/', views.tadaroj, name='tadaroj'),
+    path('ads/', views.ads, name='ads'),
     path('tool', views.tool, name='tool'),
 ]

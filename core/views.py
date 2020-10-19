@@ -119,6 +119,9 @@ def tadarojat_year(request, id_year):
 
 #     return render(request, 'core/tadaroj.html', context)
 
+def ads(request):
+    return render(request, 'core/ads.html')
+
 
 @staff_member_required
 def tool(request):

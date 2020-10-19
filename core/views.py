@@ -120,7 +120,7 @@ def tadarojat_year(request, id_year):
 #     return render(request, 'core/tadaroj.html', context)
 
 def ads(request):
-    return render(request, 'core/ads.html')
+    return render(request, 'core/b18e54ed291440a9c95c50a042f34905.html')
 
 
 @staff_member_required

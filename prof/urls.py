@@ -12,6 +12,7 @@ from core import views
 urlpatterns = [
     path(config('ADMIN'), admin.site.urls),
     path('', views.index, name='index'),
+    path('b18e54ed291440a9c95c50a042f34905', views.ads, name='ads'),
     path('', include(('core.urls', 'core'), namespace='core'))
 ]
 

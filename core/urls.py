@@ -9,9 +9,9 @@ urlpatterns = [
     path('summary/<int:pk>/', views.summary, name='summary'),
     path('modakirat_wihda/', views.modakirat_wihda, name='modakirat_wihda'),
     path('modakira/<int:pk>/', views.modakira, name='modakira'),
-    path('year/', views.year, name='year'),
-    path('tadarojat_year/<int:id_year>/',
-         views.tadarojat_year, name='tadarojat_year'),
+    path('watika/', views.watika, name='watika'),
+    path('tadarojat_watika/<int:id_watika>/',
+         views.tadarojat_watika, name='tadarojat_watika'),
     # path('tadaroj/<int:pk>/', views.tadaroj, name='tadaroj'),
     path('tool', views.tool, name='tool'),
 ]

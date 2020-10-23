@@ -1,5 +1,9 @@
 from django.contrib import admin
-from core.models import School, Wihda, Exercise, Summary_wihda, Order_name, Modakira, Tadaroj, Year
+from core.models import (
+    School, Wihda, Exercise,
+    Summary_wihda, Order_name,
+    Modakira, Tadaroj, Watika
+)
 
 
 class WihdaAdmin(admin.ModelAdmin):
@@ -32,4 +36,4 @@ admin.site.register(Summary_wihda, Summary_wihdaAdmin)
 admin.site.register(Order_name)
 admin.site.register(Modakira)
 admin.site.register(Tadaroj)
-admin.site.register(Year)
+admin.site.register(Watika)

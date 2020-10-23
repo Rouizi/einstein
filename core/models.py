@@ -70,11 +70,16 @@ class Modakira(models.Model):
         verbose_name_plural = 'Modakirates'
 
 
-class Year(models.Model):
-    number = models.PositiveIntegerField()
+class Watika(models.Model):
+    name = models.CharField(max_length=150)
+    order_name = models.ForeignKey(
+        Order_name, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.number}'
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name_plural = "Wataik"
 
 
 class Tadaroj(models.Model):
@@ -82,7 +87,7 @@ class Tadaroj(models.Model):
     order_name = models.ForeignKey(
         Order_name, on_delete=models.SET_NULL, null=True, blank=True)
     link = models.URLField()
-    year = models.ForeignKey(Year, on_delete=models.CASCADE)
+    watika = models.ForeignKey(Watika, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name}'

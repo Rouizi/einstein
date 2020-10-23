@@ -3,7 +3,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 import logging
 
-from core.models import Wihda, Exercise, Summary_wihda, School, Modakira, Tadaroj, Year
+from core.models import Wihda, Exercise, Summary_wihda, School, Modakira, Tadaroj, Watika
 from core.google_drive import display_files
 
 logger = logging.getLogger(__name__)
@@ -93,17 +93,17 @@ def modakira(request, pk):
     return render(request, 'core/modakira.html', context)
 
 
-def year(request):
-    years = Year.objects.all()
-    return render(request, 'core/years.html', {'years': years})
+def watika(request):
+    wataik = Watika.objects.all()
+    return render(request, 'core/wataik.html', {'wataik': wataik})
 
 
-def tadarojat_year(request, id_year):
-    year = get_object_or_404(Year, id=id_year)
+def tadarojat_watika(request, id_watika):
+    watika = get_object_or_404(Watika, id=id_watika)
     tadarojat = Tadaroj.objects.filter(
-        year=year).order_by('order_name')
-    context = {'tadarojat': tadarojat, 'year': year}
-    return render(request, 'core/tadarojat_year.html', context)
+        watika=watika).order_by('order_name')
+    context = {'tadarojat': tadarojat, 'watika': watika}
+    return render(request, 'core/tadarojat_watika.html', context)
 
 
 # def tadaroj(request, pk):
@@ -118,9 +118,6 @@ def tadarojat_year(request, id_year):
 #     }
 
 #     return render(request, 'core/tadaroj.html', context)
-
-def ads(request):
-    return render(request, 'core/b18e54ed291440a9c95c50a042f34905.html')
 
 
 @staff_member_required

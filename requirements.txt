@@ -3,7 +3,7 @@ autopep8==1.5.3
 cachetools==4.1.1
 certifi==2020.6.20
 chardet==3.0.4
-Django==3.0.7
+Django==3.0.12
 google-api-core==1.21.0
 google-api-python-client==1.9.3
 google-auth==1.18.0
